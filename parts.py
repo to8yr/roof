@@ -104,4 +104,3 @@ def duo_beamline(lhs, rhs, pitch, beam_type):
 
     return beamline_parts
 
-print(duo_beamline(21, 14, 18, "LX133"))

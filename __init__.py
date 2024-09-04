@@ -1,5 +1,5 @@
 import math
-import parts
+from parts import *
 
 class Duopitch:
     def __init__(self, lhs:int, rhs:int, length:float, bay_size:float, pitch:int, beam_type:str):
@@ -17,13 +17,12 @@ class Duopitch:
         return area
 
     def parts_list(self, build_method:str):
-        parts = [['LFX0001', 4*6],
-                 ['LVS0001', 4]]
+        parts = duo_beamline(self.lhs, self.rhs, self.pitch, self.beam)
         # Logic to determine required parts based on variables
         return parts
 
 
-my_roof = Duopitch(10, 10, 40, 2.5, 18, "LV78")
+my_roof = Duopitch(10, 10, 40, 2.5, 18, "78cm")
 integrity = my_roof.structural_integrity()
 parts = my_roof.parts_list("Hand")
 print(integrity)
