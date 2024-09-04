@@ -1,18 +1,15 @@
-class Rect_building:
-    def __init__(self, width, length, height):
-        self.width = width
-        self.length = length
-        self.height = height
+import math
 
 class Duopitch:
-    def __init__(self, building, bay_size, beam_type, pitch, build_method):
-        self.building = building
-        self.span = building.width
-        self.length = building.length
+    def __init__(self, lhs, rhs, length, bay_size, beam_type, pitch, build_method):
+        self.lhs = lhs + 0.5
+        self.rhs = rhs + 0.5
+        self.length = length
         self.bay_size = bay_size
         self.beam = beam_type
         self.pitch = pitch
         self.method = build_method
+        self.span = math.cos(math.radians(self.pitch)) * (self.lhs + self.rhs)
 
     def structural_integrity(self):
         # Calculations to determine structural soundness
@@ -24,10 +21,9 @@ class Duopitch:
                  ['LVS0001', 4]]
         # Logic to determine required parts based on variables
         return parts
-    
 
-my_building = Rect_building(20, 40, 3)
-my_roof = Duopitch(my_building, 2.5, "LV78", 18, "Hand")
+
+my_roof = Duopitch(10, 10, 40, 2.5, "LV78", 18, "Hand")
 integrity = my_roof.structural_integrity()
 parts = my_roof.parts_list()
 print(integrity)
