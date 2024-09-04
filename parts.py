@@ -1,14 +1,16 @@
+import numpy as np
+
 def dbeam(beam_type, length):
+
     # Determine the number of elements in the beam array based on size
     if beam_type in ("78cm", "LV78"):
-        beam = [0, 0, 0, 0, 0, 0]
+        beam = np.array([0, 0, 0, 0, 0, 0])
     elif beam_type == "LX133":
-        beam = [0, 0, 0, 0]
+        beam = np.array([0, 0, 0, 0])
     else:
         raise ValueError("Invalid beam size")
 
     # Calculate the required beams based on size and length
-
     if beam_type in ("78cm", "LV78"):
         if length == 1:
             beam[0] = 1
@@ -31,7 +33,6 @@ def dbeam(beam_type, length):
                 beam[3] = 1
             elif remainder == 5:
                 beam[4] = 1
-
     elif beam_type == "LX133":
         if 0 < length < 2:
             beam[0] = 1
@@ -49,22 +50,58 @@ def dbeam(beam_type, length):
 
 
 def duo_beamline(lhs, rhs, pitch, beam_type):
-    
-    beamline_parts = []
 
-    lhs_beams, rhs_beams = dbeam(beam_type, lhs), dbeam(beam_type, rhs)
-    beam_count = [x + y for x, y in zip(lhs_beams, rhs_beams)]
-
+    # beam code
     if beam_type == "78cm":
-        beam_codes = ["LBA1000", "LBA2000", "LBA3000", "LBA4000", "LBA5000", "LBA6000"]
+        beam_code = "LBA"
     elif beam_type == "LV78":
-        beam_codes = ["LVB1000", "LVB2000", "LVB3000", "LVB4000", "LVB5000", "LVB6000"]
+        beam_code = "LVB"
     elif beam_type == "LX133":
-        beam_codes = ["LXA1000", "LXA2000", "LXA3000", "LXA4000"]
-    
-    beams = list(zip(beam_codes, beam_count))
-    
-    return beams
+        beam_code = "LXA"
 
+    # Generate beam length list using dbeam
+    lhs_beams, rhs_beams = dbeam(beam_type, lhs), dbeam(beam_type, rhs)
+    beam_count = np.sum(np.column_stack((lhs_beams, rhs_beams)), axis=1)
 
-print(duo_beamline(11, 10, 18, "78cm"))
+    # Create list for beam quantiies
+    if beam_type in ("78cm", "LV78"):
+        beam_lengths = np.array(["1000", "2000", "3000", "4000", "5000", "6000"])
+    elif beam_type == "LX133":
+        beam_lengths = np.array(["1000", "2000", "3000", "4000"])
+    beam_codes = np.empty((len(beam_lengths), 1), dtype=object)
+    for i, l in enumerate(beam_lengths):
+        beam_codes[i] = beam_code + l
+    beams = np.column_stack((beam_codes, beam_count))
+
+    # Spigot and Pin quantities
+    joint = np.sum(beam_count)
+    spigots = joint * 2
+    if beam_type in ("78cm", "LV78"):
+        pins = spigots * 6
+        spigot_code = "LVS0001"
+    elif beam_type == "LX133":
+        pins = spigots * 8
+        spigot_code = "LXS0001"
+    joints = np.array([["LFX0001", pins], [spigot_code, spigots]], dtype=object)
+
+    # Tracking
+    if beam_type == "LX133":
+        lhs_track, rhs_track = lhs_beams, rhs_beams
+    elif beam_type in ("78cm", "LV78"):
+        lhs_track, rhs_track = dbeam("LX133", lhs), dbeam("LX133", rhs)
+    track_count = np.sum(np.column_stack((lhs_track, rhs_track)), axis=1)
+    track_spigots = np.sum(track_count)
+    compressors = 2
+    tube_holder = 2
+    track_codes = np.array(["UT1000", "UT2000", "UT3000", "UT4000"], dtype=object)
+    tracks = np.column_stack((track_codes, track_count))
+    track_components = np.array([["UA0005", compressors], ["UA0016", tube_holder], ["UA0021", track_spigots]], dtype=object)
+    tracks = np.row_stack([tracks, track_components])
+
+    # Beamline parts list generation
+    beamline_parts = np.row_stack((beams, joints, tracks))
+    beamline_parts = beamline_parts[beamline_parts[:, 1] != 0]
+
+    return beamline_parts
+
+print(duo_beamline(21, 14, 18, "LX133"))
