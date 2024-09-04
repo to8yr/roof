@@ -3,6 +3,10 @@
 ## Description
 A Python library for the analysis and material estimation of Lev3l's temporary roofs according to European standards and British annexes. 
 
+## References & Citation
+
+
+
 Openseespy
 SkyCivAPI
 BS EN 1990
