@@ -3,8 +3,8 @@ from parts import *
 
 class Duopitch:
     def __init__(self, lhs:int, rhs:int, length:float, bay_size:float, pitch:int, beam_type:str):
-        self.lhs = lhs + 0.5
-        self.rhs = rhs + 0.5
+        self.lhs = lhs
+        self.rhs = rhs
         self.length = length
         self.bay_size = bay_size
         self.beam = beam_type

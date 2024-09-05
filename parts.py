@@ -104,3 +104,21 @@ def duo_beamline(lhs, rhs, pitch, beam_type):
 
     return beamline_parts
 
+def duo_bay(lhs, rhs, beam_type, bay_size):
+
+    parts = np.array([])
+
+    hor, dia, pla, fra = "LHB", "LDB", "LPB", "UK"
+
+    if beam_type == "78cm":
+        fra_qty = lhs//2 + rhs//2
+        hort_qty = sum(0 if lhs%2==0 else 1, 0 if rhs%2==0 else 1)
+        horb_qty = fra_qty + 2
+        dia_qty = horb_qty
+    elif beam_type == "LV78":
+        hort_qty = lhs + rhs
+        horb_qty = lhs//2 + rhs//2 + 2
+        dia_qty = horb_qty
+        pla_qty = hort_qty
+
+    return parts
