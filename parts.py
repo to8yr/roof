@@ -99,20 +99,20 @@ def duo_beamline(lhs, rhs, pitch, beam_type):
     tracks = np.row_stack([tracks, track_components])
 
     # Beamline parts list generation
-    beamline_parts = np.row_stack((beams, joints, tracks))
-    beamline_parts = beamline_parts[beamline_parts[:, 1] != 0]
+    parts = np.row_stack((beams, joints, tracks))
+    parts = parts[parts[:, 1] != 0]
 
-    return beamline_parts
+    return parts
 
 def duo_bay(lhs, rhs, beam_type, bay_size):
 
-    parts = np.array([])
+    fra_qty, pla_qty = 0, 0
 
     hor, dia, pla, fra = "LHB", "LDB", "LPB", "UK"
 
     if beam_type == "78cm":
         fra_qty = lhs//2 + rhs//2
-        hort_qty = sum(0 if lhs%2==0 else 1, 0 if rhs%2==0 else 1)
+        hort_qty = sum((0 if lhs%2==0 else 1, 0 if rhs%2==0 else 1))
         horb_qty = fra_qty + 2
         dia_qty = horb_qty
     elif beam_type == "LV78":
@@ -120,5 +120,21 @@ def duo_bay(lhs, rhs, beam_type, bay_size):
         horb_qty = lhs//2 + rhs//2 + 2
         dia_qty = horb_qty
         pla_qty = hort_qty
+    elif beam_type == "LX133":
+        hort_qty = lhs + rhs
+        horb_qty = lhs//2 + rhs//2
+        dia_qty = horb_qty
+        pla_qty = hort_qty
+
+    hor_code = hor + str(bay_size)
+    pla_code = pla + str(bay_size)
+    fra_code = fra + str(bay_size)
+    dia_code = dia + str(int((bay_size**2 + 732**2 if beam_type in ("78cm", "LV78") else 1280**2)**0.5))
+
+    parts = np.array([[hor_code, horb_qty+hort_qty],
+                     [dia_code, dia_qty],
+                     [fra_code, fra_qty],
+                     [pla_code, pla_qty]], dtype=object)
+    parts = parts[parts[:, 1] != 0]
 
     return parts

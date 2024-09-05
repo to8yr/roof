@@ -17,13 +17,15 @@ class Duopitch:
         return area
 
     def parts_list(self, build_method:str):
-        parts = duo_beamline(self.lhs, self.rhs, self.pitch, self.beam)
-        # Logic to determine required parts based on variables
+        beamline = duo_beamline(self.lhs, self.rhs, self.pitch, self.beam)
+        bay = duo_bay(self.lhs, self.rhs, self.beam, self.bay_size)
+
+        parts = np.row_stack((beamline, bay))
+
         return parts
 
 
-my_roof = Duopitch(10, 10, 40, 2.5, 18, "78cm")
+my_roof = Duopitch(10, 10, 40, 2572, 18, "78cm")
 integrity = my_roof.structural_integrity()
 parts = my_roof.parts_list("Hand")
-print(integrity)
 print(parts)
