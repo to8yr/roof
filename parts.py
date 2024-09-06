@@ -1,14 +1,46 @@
 import numpy as np
+import pandas as pd
 
-def dbeam(beam_type, length):
+class Parts:
+    def __init__(self):
+        pass
+    
+    def initialise(self, csv):
+        self.parts = pd.read_csv('parts.csv')
+        return self
 
-    # Determine the number of elements in the beam array based on size
-    if beam_type in ("78cm", "LV78"):
-        beam = np.array([0, 0, 0, 0, 0, 0])
+    def search(self, code:list):
+        result = pd.DataFrame({})
+        for i, c in enumerate(code):
+            row = self.parts.loc[self.parts["Code"] == code[i]]
+            result = pd.concat([result, row])
+        return result
+    
+    def add_qty(self, df):
+        self.parts = pd.merge(self.parts, df, on="Code", how="right")
+        return self
+
+
+def beam(beam_type, length):
+
+    # Define product code prefix
+    if beam_type == "D78":
+        prefix = "BA"
+    elif beam_type == "LV78":
+        prefix = "LVB"
+    elif beam_type == "AHD":
+        prefix = "BD"
     elif beam_type == "LX133":
-        beam = np.array([0, 0, 0, 0])
+        prefix = "LXA"
     else:
-        raise ValueError("Invalid beam size")
+        print("Invalid input. Please enter a valid number.")
+
+    # Create empty array
+    if beam_type in ("D78", "LV78"):
+        array = 6
+    elif beam_type in ("AHD", "LX133"):
+        array = 4
+    beam = np.zeros(array)
 
     # Calculate the required beams based on size and length
     if beam_type in ("78cm", "LV78"):
@@ -33,7 +65,7 @@ def dbeam(beam_type, length):
                 beam[3] = 1
             elif remainder == 5:
                 beam[4] = 1
-    elif beam_type == "LX133":
+    elif beam_type in ("AHD", "LX133"):
         if 0 < length < 2:
             beam[0] = 1
         else:
@@ -46,7 +78,26 @@ def dbeam(beam_type, length):
             elif remainder == 3:
                 beam[2] = 1
 
-    return beam
+    if beam_type in ("78cm", "LV78"):
+        beam_lengths = np.arange(1000, 6001, 1000)
+    elif beam_type == "LX133":
+        beam_lengths = np.arange(1000, 4001, 1000)
+    beam_codes = np.empty((len(beam_lengths), 1), dtype=object)
+    for i, l in enumerate(beam_lengths):
+        beam_codes[i] = prefix + str(l)
+    beams = np.column_stack((beam_codes, beam))
+    parts = pd.DataFrame(beams, columns=['Code', 'qty'])
+
+    return parts
+
+
+parts = Parts().initialise('parts.csv')
+parts = parts.add_qty(beam("LV78", 20))
+row = parts.search(['LVB3000','LVB5000', 'LVB6000'])
+
+print(row)
+
+
 
 
 def duo_beamline(lhs, rhs, pitch, beam_type):
@@ -60,7 +111,7 @@ def duo_beamline(lhs, rhs, pitch, beam_type):
         beam_code = "LXA"
 
     # Generate beam length list using dbeam
-    lhs_beams, rhs_beams = dbeam(beam_type, lhs), dbeam(beam_type, rhs)
+    lhs_beams, rhs_beams = beam(beam_type, lhs), beam(beam_type, rhs)
     beam_count = np.sum(np.column_stack((lhs_beams, rhs_beams)), axis=1)
 
     # Create list for beam quantiies
@@ -88,7 +139,7 @@ def duo_beamline(lhs, rhs, pitch, beam_type):
     if beam_type == "LX133":
         lhs_track, rhs_track = lhs_beams, rhs_beams
     elif beam_type in ("78cm", "LV78"):
-        lhs_track, rhs_track = dbeam("LX133", lhs), dbeam("LX133", rhs)
+        lhs_track, rhs_track = beam("LX133", lhs), beam("LX133", rhs)
     track_count = np.sum(np.column_stack((lhs_track, rhs_track)), axis=1)
     track_spigots = np.sum(track_count)
     compressors = 2
