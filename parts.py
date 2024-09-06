@@ -1,26 +1,6 @@
 import numpy as np
 import pandas as pd
 
-class Parts:
-    def __init__(self):
-        pass
-    
-    def read_csv(self, csv):
-        self.parts = pd.read_csv('parts.csv')
-        return self
-
-    def search(self, code:list):
-        result = pd.DataFrame({})
-        for i, c in enumerate(code):
-            row = self.parts.loc[self.parts["Code"] == code[i]]
-            result = pd.concat([result, row])
-        return result
-    
-    def add_qty(self, df):
-        self.parts = pd.merge(self.parts, df, on="Code", how="right")
-        return self
-
-
 def beam(beam_type, length):
 
     # Define product code prefix
@@ -108,10 +88,18 @@ def beam(beam_type, length):
         pin_code = "LFX0001"
 
     joints = np.array([[pin_code, pins], [spigot_code, spigots]], dtype=object)
-    parts = np.row_stack((beams, joints))
+    parts = np.vstack((beams, joints))
+    parts = parts[parts[:, 1] != 0]
     parts = pd.DataFrame(parts, columns=['Code', 'qty'])
 
     return parts
+
+'''
+parts = Parts().read_csv('parts.csv')
+parts = parts.add_qty(beam('AHD', 35))
+print(parts.search(['BD4000', 'BD3000', 'BD2000', 'AF0001']))
+'''
+
 
 
 def duo_beamline(lhs, rhs, pitch, beam_type):
@@ -161,10 +149,10 @@ def duo_beamline(lhs, rhs, pitch, beam_type):
     track_codes = np.array(["UT1000", "UT2000", "UT3000", "UT4000"], dtype=object)
     tracks = np.column_stack((track_codes, track_count))
     track_components = np.array([["UA0005", compressors], ["UA0016", tube_holder], ["UA0021", track_spigots]], dtype=object)
-    tracks = np.row_stack([tracks, track_components])
+    tracks = np.vstack([tracks, track_components])
 
     # Beamline parts list generation
-    parts = np.row_stack((beams, joints, tracks))
+    parts = np.vstack((beams, joints, tracks))
     parts = parts[parts[:, 1] != 0]
 
     return parts
