@@ -5,7 +5,7 @@ class Parts:
     def __init__(self):
         pass
     
-    def initialise(self, csv):
+    def read_csv(self, csv):
         self.parts = pd.read_csv('parts.csv')
         return self
 
@@ -43,7 +43,7 @@ def beam(beam_type, length):
     beam = np.zeros(array)
 
     # Calculate the required beams based on size and length
-    if beam_type in ("78cm", "LV78"):
+    if beam_type in ("D78", "LV78"):
         if length == 1:
             beam[0] = 1
         elif length == 2:
@@ -78,26 +78,40 @@ def beam(beam_type, length):
             elif remainder == 3:
                 beam[2] = 1
 
-    if beam_type in ("78cm", "LV78"):
+    if beam_type in ("D78", "LV78"):
         beam_lengths = np.arange(1000, 6001, 1000)
-    elif beam_type == "LX133":
+    elif beam_type in ("AHD","LX133"):
         beam_lengths = np.arange(1000, 4001, 1000)
     beam_codes = np.empty((len(beam_lengths), 1), dtype=object)
     for i, l in enumerate(beam_lengths):
         beam_codes[i] = prefix + str(l)
     beams = np.column_stack((beam_codes, beam))
-    parts = pd.DataFrame(beams, columns=['Code', 'qty'])
+
+    joint = np.sum(beam) - 1
+    spigots = joint * 2
+
+    if beam_type == "D78":
+        pins = spigots * 6
+        spigot_code = "BS0001"
+        pin_code = "AF0001"
+    elif beam_type == "LV78":
+        pins = spigots * 6
+        spigot_code = "LVS0001"
+        pin_code = "LFX0001"
+    elif beam_type == "AHD":
+        pins = spigots * 8
+        spigot_code = "BS0006"
+        pin_code = "AF0001"
+    elif beam_type == "LX133":
+        pins = spigots * 8
+        spigot_code = "LXS0001"
+        pin_code = "LFX0001"
+
+    joints = np.array([[pin_code, pins], [spigot_code, spigots]], dtype=object)
+    parts = np.row_stack((beams, joints))
+    parts = pd.DataFrame(parts, columns=['Code', 'qty'])
 
     return parts
-
-
-parts = Parts().initialise('parts.csv')
-parts = parts.add_qty(beam("LV78", 20))
-row = parts.search(['LVB3000','LVB5000', 'LVB6000'])
-
-print(row)
-
-
 
 
 def duo_beamline(lhs, rhs, pitch, beam_type):
