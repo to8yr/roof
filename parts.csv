@@ -1,0 +1,382 @@
+Code,Description,Weight kg
+AA0001,TRAX AU Castor c/w tube stem,18
+AA0002,TRAX AU Castor body only,15
+AA0003,TRAX AU Tube Stem top plate,3.9
+AA0004,TRAX AU Castor BA top plate,3.4
+AA0005,TRAX AU Castor top plate c/w 3 half couplers,3.4
+AA0006,TRAX AU Castor HB top plate,3.02
+AA0007,Beam support upright,11.28
+AA0008,Beam support spur inner,3.06
+AA0009,Beam support spur outer,3.95
+AA0010,TRAX AU Castor with rosette for APA standard,5.2
+AF0001,Spring pin M12x60 for round tube,0.07
+AF0002,Spring pin M12x70 for ridge track,0.1
+AF0039,Linch pin M6,0.01
+AF0040,Linch pin M8,0.01
+AF0041,Locking pin tapered 103x20mm,0.23
+AF0042,Locking pin tapered 123x30mm,0.62
+AR0001,Ratchet straps 460kg SWL x 2m,0.48
+AR0002,Ratchet straps 1000kg SWL x 2m,0.52
+AR0003,Sheet pulling strap 30m,5.4
+AT0001,TRAX tube holder,1.3
+BA0001,D78 aluminium beam with support 1m,9.75
+BA0006,D78 ridge 6 degrees,8.1
+BA0012,D78 ridge 12 degrees,7.4
+BA0018,D78 ridge 18 degrees,7.45
+BA0036,D78 ridge 36 degrees,12
+BA0118,D78 eaves beam 0.78x18degrees,5.61
+BA0218,D78 aluminium eaves beam with support 1m,9.63
+BA0318,D78 aluminium eaves beam with support 2m,18.72
+BA0500,D78 aluminium beam 0.5m,4.3
+BA1000,D78 aluminium beam 1.0m,6.34
+BA2000,D78 aluminium beam 2.0m,11.63
+BA3000,D78 aluminium beam 3.0m,16.92
+BA4000,D78 aluminium beam 4.0m,22.21
+BA5000,D78 aluminium beam 5.0m,27.5
+BA6000,D78 aluminium beam 6.0m,32.79
+BC0018,ASTERIX ridge 18 degrees,16.23
+BC0036,ASTERIX ridge 36 degrees,15.87
+BC0118,ASTERIX eaves 18 degrees,7.64
+BC0600,ASTERIX aluminium beam 0.75x0.6m,4.84
+BC1000,ASTERIX aluminium beam 0.75x1m,8
+BC2000,ASTERIX aluminium beam 0.75x2m,14.25
+BC3000,ASTERIX aluminium beam 0.75x3m,20.49
+BC4000,ASTERIX aluminium beam 0.75x4m,26.74
+BC5000,ASTERIX aluminium beam 0.75x5m,32.99
+BC6000,ASTERIX aluminium beam 0.75x6m,39.23
+BD0006,ASTERIX HD ridge 6 degreesx1.33m,24.33
+BD0012,ASTERIX HD ridge 12 degreesx1.33m,25.46
+BD0018,ASTERIX HD ridge 18 degreesx1.33m,24.99
+BD0036,ASTERIX HD ridge 36 degreesx1.33m,26.2
+BD0118,ASTERIX HD eaves 18 degreesx1.33m,13.25
+BD0550,ASTERIX HD aluminium beam 1.33x0.55m,6.33
+BD1000,ASTERIX HD aluminium beam 1.33x1m,13.33
+BD2000,ASTERIX HD aluminium beam 1.33x2m,22.6
+BD3000,ASTERIX HD aluminium beam 1.33x3m,31.87
+BD4000,ASTERIX HD aluminium beam 1.33x4m,41.13
+BQ0001,sysTRAX End Piece,4.2
+BQ0390,sysTRAX 0.39m,8.59
+BQ0400,sysTRAX 0.40m,8.8
+BQ0500,sysTRAX 0.50m,10.92
+BQ0700,sysTRAX 0.70m,15.16
+BQ0732,sysTRAX 0.73m,15.84
+BQ1000,sysTRAX 1.00m,21.52
+BQ1065,sysTRAX 1.065m,22.89
+BQ1072,sysTRAX 1.07m,23.04
+BQ1088,sysTRAX 1.09m,23.38
+BQ1500,sysTRAX 1.50m,32.11
+BQ1572,sysTRAX 1.57m,33.64
+BQ2000,sysTRAX 2.00m,42.71
+BQ2072,sysTRAX 2.07m,44.23
+BQ2500,sysTRAX 2.50m,53.3
+BQ2572,sysTRAX 2.57m,54.83
+BQ3000,sysTRAX 3.00m,63.9
+BQ3072,sysTRAX 3.07m,65.43
+BR0011,TRAX UB end closer,2.6
+BR0012,TRAX UB jointing plate,0.5
+BR1000,TRAX UB 1m,20
+BR2000,TRAX UB 2m,40
+BR3000,TRAX UB 3m,60
+BS0001,Beam spigot D78 6HS,1.49
+BS0002,Beam spigot D78 6HA,0.8
+BS0003,Beam spigot 78 4HS,1.5
+BS0004,Beam spigot 78 4HA,0.85
+BS0005,Beam spigot ASTX 6HS,0.72
+BS0006,ASTERIX HD Beam spigot 8HS,1.44
+BS0013,Beam spigot ASTX 6HA,0.55
+BS0014,Beam spigot ASTX HD 8HA,0.85
+CA0001,Gable sheet 610gsm,0.61
+CA0002,Additional sheet pocket 2.07m,0.44
+CA0005,Additional sheet pocket 2.57m,0.55
+CA0006,Additional sheet pocket 3.07m,0.66
+CA0110,Roof sheet white 610gsmx8mm 10.00x2.07m,10.2
+CA0115,Roof sheet white 610gsmx8mm 15.00x2.07m,15.3
+CA0120,Roof sheet white 610gsmx8mm 20.00x2.07m,20.4
+CA0125,Roof sheet white 610gsmx8mm 25.00x2.07m,25.5
+CA0130,Roof sheet white 610gsmx8mm 30.00x2.07m,30.7
+CA0135,Roof sheet white 610gsmx8mm 35.00x2.07m,35.8
+CA0140,Roof sheet white 610gsmx8mm 40.00x2.07m,40.9
+CA0145,Roof sheet white 610gsmx8mm 45.00x2.07m,46
+CA0210,Roof sheet white 610gsmx8mm 10.00x2.57m,13.5
+CA0215,Roof sheet white 610gsmx8mm 15.00x2.57m,20.2
+CA0220,Roof sheet white 610gsmx8mm 20.00x2.57m,26.9
+CA0225,Roof sheet white 610gsmx8mm 25.00x2.57m,33.7
+CA0230,Roof sheet white 610gsmx8mm 30.00x2.57m,40.4
+CA0235,Roof sheet white 610gsmx8mm 35.00x2.57m,47.1
+CA0240,Roof sheet white 610gsmx8mm 40.00x2.57m,53.9
+CA0245,Roof sheet white 610gsmx8mm 45.00x2.57m,60.6
+CA0310,Roof sheet white 610gsmx8mm 10.00x3.07m,16.7
+CA0315,Roof sheet white 610gsmx8mm 15.00x3.07m,25.1
+CA0320,Roof sheet white 610gsmx8mm 20.00x3.07m,33.4
+CA0325,Roof sheet white 610gsmx8mm 25.00x3.07m,41.8
+CA0330,Roof sheet white 610gsmx8mm 30.00x3.07m,50.2
+CA0335,Roof sheet white 610gsmx8mm 35.00x3.07m,58.5
+CA0340,Roof sheet white 610gsmx8mm 40.00x3.07m,66.9
+CA0345,Roof sheet white 610gsmx8mm 45.00x3.07m,75.2
+CA0410,Roof sheet white 610gsmx8mm 10.0x1.57m,10.1
+CA0415,Roof sheet white 610gsmx8mm 15.0x1.57m,15.05
+CA0420,Roof sheet white 610gsmx8mm 20.0x1.57m,20.15
+CA0425,Roof sheet white 610gsmx8mm 25.0x1.57m,25.2
+CA0430,Roof sheet white 610gsmx8mm 30.0x1.57m,30.2
+CA0435,Roof sheet white 610gsmx8mm 35.0x1.57m,35.2
+CA0440,Roof sheet white 610gsmx8mm 40.0x1.57m,41.1
+CA0445,Roof sheet white 610gsmx8mm 45.0x1.57m,45.5
+CB0110,Roof sheet white 610gsmx8mm 10.0x1.5m,9.8
+CB0115,Roof sheet white 610gsmx8mm 15.0x1.5m,14.6
+CB0120,Roof sheet white 610gsmx8mm 20.0x1.5m,19.5
+CB0125,Roof sheet white 610gsmx8mm 25.0x1.5m,24.4
+CB0130,Roof sheet white 610gsmx8mm 30.0x1.5m,29.3
+CB0135,Roof sheet white 610gsmx8mm 35.0x1.5m,34.1
+CB0140,Roof sheet white 610gsmx8mm 40.0x1.5m,39
+CB0145,Roof sheet white 610gsmx8mm 45.0x1.5m,43.9
+CB0210,Roof sheet white 610gsmx8mm 10.0x2.0m,13
+CB0215,Roof sheet white 610gsmx8mm 15.0x2.0m,19.5
+CB0220,Roof sheet white 610gsmx8mm 20.0x2.0m,26
+CB0225,Roof sheet white 610gsmx8mm 25.0x2.0m,32.5
+CB0230,Roof sheet white 610gsmx8mm 30.0x2.0m,39
+CB0235,Roof sheet white 610gsmx8mm 35.0x2.0m,45.5
+CB0240,Roof sheet white 610gsmx8mm 40.0x2.0m,52
+CB0245,Roof sheet white 610gsmx8mm 45.0x2.0m,58.5
+CB0310,Roof sheet white 610gsmx8mm 10.0x2.5m,16.3
+CB0315,Roof sheet white 610gsmx8mm 15.0x2.5m,24.4
+CB0320,Roof sheet white 610gsmx8mm 20.0x2.5m,32.5
+CB0325,Roof sheet white 610gsmx8mm 25.0x2.5m,40.6
+CB0330,Roof sheet white 610gsmx8mm 30.0x2.5m,48.8
+CB0335,Roof sheet white 610gsmx8mm 35.0x2.5m,56.9
+CB0340,Roof sheet white 610gsmx8mm 40.0x2.5m,65
+CB0345,Roof sheet white 610gsmx8mm 45.0x2.5m,68.53
+CB0410,Roof sheet white 610gsmx8mm 10.0x3.0m,18.3
+CB0415,Roof sheet white 610gsmx8mm 15.0x3.0m,27.45
+CB0420,Roof sheet white 610gsmx8mm 20.0x3.0m,36.6
+CB0425,Roof sheet white 610gsmx8mm 25.0x3.0m,45.75
+CB0430,Roof sheet white 610gsmx8mm 30.0x3.0m,54.9
+CB0435,Roof sheet white 610gsmx8mm 35.0x3.0m,64.05
+CB0440,Roof sheet white 610gsmx8mm 40.0x3.0m,73.2
+CB0445,Roof sheet white 610gsmx8mm 45.0x3.0m,82.35
+UA0000,Castor top plate 0 degrees,5
+UA0001,UNI Intermediate roller coupler,1.65
+UA0002,UNI track coupler-short,0.65
+UA0003,"Sheet pulling bar assembly, nylon wheels",8.2
+UA0004,UNI rubber spigot,0.07
+UA0005,UNI track compressor,1.09
+UA0006,Castor top plate 200H for APA ledgers,10.7
+UA0007,sysTRAX bearer 1.2m,14.87
+UA0008,AUK Connection bracket,2.32
+UA0009,ASTERIX HD / D78 connection bracket,3.33
+UA0010,ASTERIX HD / D78 2m bearer,20.8
+UA0011,0.7m bearer c/w 4 half couplers,10.2
+UA0012,Castor top plate 12 degrees,5.2
+UA0014,sysTRAX sliding support,6.13
+UA0015,sysTRAX connection plate,4.18
+UA0016,Eaves Tube Holder w/ spigot,2.32
+UA0017,Eaves Tube Holder w/ Sleeve,2.08
+UA0018,Castor top plate 18 degrees,5.2
+UA0020,UNI track coupler for system scaffold,0.65
+UA0021,UNI alloy track spigot inc gasket,0.33
+UA0022,UNI alloy track spigot gasket,0.03
+UA0023,"Sheet pulling bar assembly, alloy wheels",9.5
+UA0024,Drilled tube 250mm,0.41
+UA0025,Integrated pulling bar wheel,1.51
+UA0026,Eaves continuous tube connector,1.8
+UA0027,Eaves continuous tube connector Steel,1.96
+UA0028,Castor top plate 18 degrees for APA ledgers,7.34
+UA0029,Castor conversion plate for APA ledgers,3.55
+UA0030,Castor top plate 36 degrees for APA ledgers,9.25
+UA0031,"Tracking connector insert, keder clamp",1.08
+UA0032,"Tracking connector body, with wedge",1.08
+UA0033,"Tracking connector body, with coupler",0.55
+UA0034,"Tracking connector insert, stop end",0.4
+UA0035,Alloy track spigot,0.24
+UA0036,UNI Shelter Bracket,5.24
+UA0037,UNI cantilever tensioning tube,2.41
+UA0038,UNI Gutter support bracket,7.1
+UA0040,Beam Support 0 Degrees c/w half coupler,0
+UB1000,UNI sheet tensioning bar 1.0m,3.38
+UB1088,UNI sheet tensioning bar 1.09m,3.59
+UB1500,UNI sheet tensioning bar 1.5m,5.25
+UB1572,UNI sheet tensioning bar 1.57m,5.68
+UB2000,UNI sheet tensioning bar 2.0m,7.12
+UB2072,UNI sheet tensioning bar 2.07m,7.39
+UB2500,UNI sheet tensioning bar 2.5m,8.96
+UB2572,UNI sheet tensioning bar 2.57m,9.26
+UB3000,UNI sheet tensioning bar 3.0m,10.86
+UB3072,UNI sheet tensioning bar 3.07m,11.13
+UD1222,UNI diagonal 0.75x1.00m,2.42
+UD1239,UNI diagonal 0.78x1.00m,2.44
+UD1311,UNI diagonal 0.78x1.09m,2.45
+UD1656,UNI diagonal 0.75x1.5m,2.59
+UD1669,UNI diagonal 0.78x1.5m,2.65
+UD1722,UNI diagonal 0.75x1.57m,2.69
+UD1734,UNI diagonal 0.78x1.57m,2.75
+UD2120,UNI diagonal 0.75x2.0m,3.3
+UD2130,UNI diagonal 0.78x2.0m,3.34
+UD2188,UNI diagonal 0.75x2.07m,3.43
+UD2198,UNI diagonal 0.78x2.07m,3.44
+UD2597,UNI diagonal 0.75x2.5m,3.84
+UD2605,UNI diagonal 0.78x2.5m,3.85
+UD2666,UNI diagonal 0.75x2.57m,3.93
+UD2674,UNI diagonal 0.78x2.57m,3.94
+UD3081,UNI diagonal 0.75x3.0m,4.3
+UD3088,UNI diagonal 0.78x3.0m,4.36
+UD3151,UNI diagonal 0.75x3.07m,4.42
+UD3158,UNI diagonal 0.78x3.07m,4.44
+UH1000,UNI horizontal brace 1.00m,2.12
+UH1088,UNI horizontal brace 1.09m,2.21
+UH1300,UNI horizontal brace 1.30m,2.43
+UH1500,UNI horizontal brace 1.50m,2.64
+UH1572,UNI horizontal brace 1.57m,2.71
+UH2000,UNI horizontal brace 2.00m,3.15
+UH2072,UNI horizontal brace 2.07m,3.22
+UH2500,UNI horizontal brace 2.50m,3.66
+UH2572,UNI horizontal brace 2.57m,3.73
+UH3000,UNI horizontal brace 3.00m,4.17
+UH3072,UNI horizontal brace 3.07m,4.24
+UK1000,UNI frame 1.00x 1.00m,8.75
+UK1088,UNI frame 1.08x 1.00m,8
+UK1500,UNI frame 1.00x 1.50m,9.76
+UK1572,UNI frame 1.00x 1.57m,9.9
+UK2000,UNI frame 1.00x 2.00m,11.81
+UK2072,UNI frame 1.00x 2.07m,11.95
+UK2500,UNI frame 1.00x 2.50m,12.99
+UK2572,UNI frame 1.00x 2.57m,13.14
+UK3000,UNI frame 1.00x 3.00m,14.34
+UK3072,UNI frame 1.00x 3.07m,14.48
+UP1414,UNI plan brace 1.00x1.00m,2.42
+UP1478,UNI plan brace 1.00x1.08m,2.6
+UP1803,UNI Plan brace 1.50x1.00m,2.86
+UP1863,UNI Plan brace 1.57x1.00m,2.92
+UP2236,UNI plan brace 2.00x1.00m,3.25
+UP2301,UNI plan brace 2.07x1.00m,3.31
+UP2693,UNI Plan brace 2.50x1.00m,3.77
+UP2760,UNI plan brace 2.57x1.00m,3.77
+UP3162,UNI Plan brace 3.00x1.00m,4.25
+UP3231,UNI plan brace 3.07x1.00m,4.25
+UR1000,UNI roller 1.00m,4.6
+UR1088,UNI roller 1.09m,4.64
+UR1500,UNI roller 1.50m,6.1
+UR1572,UNI roller 1.57m,6.3
+UR2000,UNI roller 2.00m,8.8
+UR2072,UNI roller 2.07m,8.8
+UR2500,UNI roller 2.50m,11.4
+UR2572,UNI roller 2.57m,11.4
+UR3000,UNI roller 3.00m,13.6
+UR3072,UNI roller 3.07m,13.6
+US0001,DeepFlowTM track end piece 1m,2.58
+US0002,DeepFlowTM track end piece with spigot 1m,2.59
+US0018,DeepFlowTM ridge track UNI 18deg,3.94
+US0036,DeepFlowTM ridge track UNI 36deg,5.96
+US0118,"DeepFlowTM ridge track AST, AHD 18deg",6.78
+US0136,DeepFlowTM ridge track AST 36deg,0
+US0218,DeepFlowTM eaves track UNI 78x18 deg,4.91
+US0236,DeepFlowTM ridge track AHD 36deg,0
+US0418,DeepFlowTM eaves track AST 75x18 deg,0
+US0618,DeepFlowTM eaves track AHD 133x18 deg,0
+US1000,DeepFlowTM track 1m,2.65
+US2000,DeepFlowTM track 2m,5.23
+US3000,DeepFlowTM track 3m,7.82
+US4000,DeepFlowTM track 4m,10.36
+UT0018,"UNI ridge track for BA0018,BB0018,BG0018",2.75
+UT0036,"UNI ridge track for BA0036,BB0036",3.62
+UT0106,UNI ridge track for BD0006,3.31
+UT0112,UNI ridge track for BD0012,3.82
+UT0118,"UNI ridge track for BC0018,BD0018",4.53
+UT0136,UNI ridge track for BC0036,0
+UT0218,UNI eaves track for BA0118,3.1
+UT0236,UNI ridge track for BD0036,2.8
+UT0418,UNI eaves track for BC0118,3.43
+UT0618,UNI eaves track for BD0118,0
+UT1000,UNI track 1.0m,1.8
+UT2000,UNI track 2.0m,3.5
+UT3000,UNI track 3.0m,5.3
+UT4000,UNI track 4.0m,7.1
+UU0018,UNI Tie bar connection plate 18deg,1.79
+UU0212,UNI Tie bar 2x12 degrees,6.92
+UU0218,UNI Tie bar 2x18 degrees,7.11
+UU0312,UNI Tie bar 3x12 degrees,10.4
+UU0318,UNI Tie bar 3x18 degrees,10.66
+UU0612,UNI Tie bar 6x12 degrees,20.85
+UU0618,UNI Tie bar 6x18 degrees,21.32
+UU7818,UNI D78 Tie bar end piece 18deg,11.38
+UW0012,AHD Tie bar connection plate 12deg,2.16
+UW0018,AHD Tie bar connection plate 18deg,2.25
+UW0112,AHD Tie bar end piece 12deg for BS0001,5.45
+UW0118,AHD Tie bar end piece 18deg for BS0001,5.45
+UW0128,AHD Tie bar end piece 18 deg for BS0005,5.45
+LVB0012,12° LV78 aluminium ridge beam,
+LVB0018,18° LV78 aluminium ridge beam,10.6
+LVB0036,36° LV78 aluminium ridge beam,13.8
+LVB0550,0.55m LV78 aluminium beam,4.9
+LVB1000,1.0m LV78 aluminium beam,8.3
+LVB2000,2.0m LV78 aluminium beam,14.3
+LVB3000,3.0m LV78 aluminium beam,20.4
+LVB4000,4.0m LV78 aluminium beam,26.5
+LVB5000,5.0m LV78 aluminium beam,32.6
+LVB6000,6.0m LV78 aluminium beam,38.6
+LBA0012,12° 78cm aluminium ridge beam,
+LBA0018,18° 78cm aluminium ridge beam,7.4
+LBA0036,36° 78cm aluminium ridge beam,10.8
+LBA1000,1.0m 78cm aluminium beam,6.4
+LBA2000,2.0m 78cm aluminium beam,11.5
+LBA3000,3.0m 78cm aluminium beam,16.8
+LBA4000,4.0m 78cm aluminium beam,22.1
+LBA5000,5.0m 78cm aluminium beam,27.6
+LBA6000,6.0m 78cm aluminium beam,32.7
+LXA0012,12° LX133 aluminium ridge beam,24.8
+LXA0018,18° LX133 aluminium ridge beam,26.4
+LXA0036,36° LX133 aluminium ridge beam,30.8
+LXA0550,0.55m LX133 aluminium beam,8
+LXA1000,1.0m LX133 aluminium beam,13.5
+LXA2000,2.0m LX133 aluminium beam,23
+LXA3000,3.0m LX133 aluminium beam,32
+LXA4000,4.0m LX133 aluminium beam,42.5
+LFX0001,Q/R Pin Ø12x60,0.07
+LHB0500,Horizontal brace 0.5m,1.58
+LHB1000,Horizontal brace 1m,2.09
+LHB1088,Horizontal brace 1.088m,2.18
+LHB1500,Horizontal brace 1.5m,2.6
+LHB1572,Horizontal brace 1.572m,2.67
+LHB2000,Horizontal brace 2m,3.11
+LHB2072,Horizontal brace 2.072m,3.18
+LHB2500,Horizontal brace 2.5m,3.62
+LHB2572,Horizontal brace 2.572m,3.7
+LHB3000,Horizontal brace 3m,4.13
+LHB3072,Horizontal brace 3.072m,4.21
+LPB0500,Plan brace 0.5m,2.21
+LPB1000,Plan brace 1m,2.51
+LPB1088,Plan brace 1.088m,2.58
+LPB1500,Plan brace 1.5m,2.91
+LPB1572,Plan brace 1.572m,2.97
+LPB2000,Plan brace 2m,3.35
+LPB2072,Plan brace 2.072m,3.42
+LPB2500,Plan brace 2.5m,3.82
+LPB2572,Plan brace 2.572m,3.89
+LPB3000,Plan brace 3m,4.3
+LPB3072,Plan brace 3.072m,4.37
+LDB0886,Diagonal brace 0.5 x 0.732m,1.97
+LDB1239,Diagonal brace 1 x 0.732m,2.33
+LDB1311,Diagonal brace 1.088 x 0.732m,2.41
+LDB1374,Diagonal brace 0.5 x 1.28m,2.47
+LDB1624,Diagonal brace 1 x 1.28m,2.73
+LDB1669,Diagonal brace 1.5 x 0.732m,2.77
+LDB1680,Diagonal brace 1.088 x 1.28m,2.78
+LDB1734,Diagonal brace 1.572 x 0.732m,2.84
+LDB1972,Diagonal brace 1.5 x 1.28m,3.08
+LDB2027,Diagonal brace 1.572 x 1.28m,3.14
+LDB2130,Diagonal brace 2 x 0.732m,3.24
+LDB2198,Diagonal brace 2.072 x 0.732m,3.31
+LDB2375,Diagonal brace 2 x 1.28m,3.49
+LDB2435,Diagonal brace 2.072 x 1.28m,3.56
+LDB2605,Diagonal brace 2.5 x 0.732m,3.73
+LDB2674,Diagonal brace 2.572 x 0.732m,3.8
+LDB2809,Diagonal brace 2.5 x 1.28m,3.94
+LDB2873,Diagonal brace 2.572 x 1.28m,4
+LDB3088,Diagonal brace 3 x 0.732m,4.22
+LDB3158,Diagonal brace 3.072 x 0.732m,4.29
+LDB3262,Diagonal brace 3 x 1.28m,4.4
+LDB3328,Diagonal brace 3.072 x 1.28m,4.47
+LST1000,1.0m sheet tracking,1.82
+LST2000,2.0m sheet tracking,3.65
+LST3000,3.0m sheet tracking,5.47
+LST4000,4.0m sheet tracking,7.3
+LST5000,5.0m sheet tracking,9.12
+LST6000,6.0m sheet tracking,10.95
