@@ -1,33 +1,6 @@
 import math
 from parts import *
 
-class Parts:
-    def __init__(self):
-        pass
-    
-    # Function to initialise Parts dataframe from csv file
-    def read_csv(self, csv):
-        self.parts = pd.read_csv('parts.csv')
-        self.parts['qty'] = 0
-        return self
-
-    # Search function that returns dateframe with rows of codes provided
-    def search(self, code:list):
-        result = pd.DataFrame({})
-        for i, c in enumerate(code):
-            row = self.parts.loc[self.parts["Code"] == code[i]]
-            result = pd.concat([result, row])
-        return result
-    
-    # Adds qty tab to Parts dataframe and 
-    def add_qty(self, df):
-        self.parts = pd.merge(self.parts, df, on="Code", how="right", suffixes=('', 'y'))
-        self.parts['qty'] = self.parts['qty'] + self.parts['qtyy']
-        self.parts = self.parts.drop(['qtyy'], axis=1)
-        return self
-
-
-
 class Duopitch:
     def __init__(self, lhs:int, rhs:int, length:float, bay_size:float, pitch:int, beam_type:str):
         self.lhs = lhs
@@ -50,8 +23,3 @@ class Duopitch:
         parts = np.row_stack((beamline, bay))
 
         return parts
-
-
-beamline = beam('LX133', 26)
-beamline['10'] = beamline['qty'].mul(10)
-print(beamline)

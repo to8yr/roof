@@ -1,6 +1,31 @@
 import numpy as np
 import pandas as pd
 
+class Parts:
+    def __init__(self):
+        pass
+    
+    # Function to initialise Parts dataframe from csv file
+    def read_csv(self, csv):
+        self.parts = pd.read_csv('parts.csv')
+        self.parts['qty'] = 0
+        return self
+
+    # Search function that returns dateframe with rows of codes provided
+    def search(self, code:list):
+        result = pd.DataFrame({})
+        for i, c in enumerate(code):
+            row = self.parts.loc[self.parts["Code"] == code[i]]
+            result = pd.concat([result, row])
+        return result
+    
+    # Adds qty tab to Parts dataframe and 
+    def add_qty(self, df):
+        self.parts = pd.merge(self.parts, df, on="Code", how="right", suffixes=('', 'y'))
+        self.parts['qty'] = self.parts['qty'] + self.parts['qtyy']
+        self.parts = self.parts.drop(['qtyy'], axis=1)
+        return self
+
 def beam(beam_type, length):
 
     # Define product code prefix
@@ -15,14 +40,14 @@ def beam(beam_type, length):
     else:
         print("Invalid input. Please enter a valid number.")
 
-    # Create empty array
+    # Create empty array based on size
     if beam_type in ("D78", "LV78"):
         array = 6
     elif beam_type in ("AHD", "LX133"):
         array = 4
     beam = np.zeros(array)
 
-    # Calculate the required beams based on size and length
+    # Update empty array based on required sizes
     if beam_type in ("D78", "LV78"):
         if length == 1:
             beam[0] = 1
@@ -58,6 +83,7 @@ def beam(beam_type, length):
             elif remainder == 3:
                 beam[2] = 1
 
+    # Generate codes for beams and concat with qty
     if beam_type in ("D78", "LV78"):
         beam_lengths = np.arange(1000, 6001, 1000)
     elif beam_type in ("AHD","LX133"):
@@ -67,9 +93,9 @@ def beam(beam_type, length):
         beam_codes[i] = prefix + str(l)
     beams = np.column_stack((beam_codes, beam))
 
+    # Spigot and pin codes and qty based on number of beams
     joint = np.sum(beam) - 1
     spigots = joint * 2
-
     if beam_type == "D78":
         pins = spigots * 6
         spigot_code = "BS0001"
@@ -87,20 +113,12 @@ def beam(beam_type, length):
         spigot_code = "LXS0001"
         pin_code = "LFX0001"
 
+    # Capture all parts and return data frame containing codes and qty
     joints = np.array([[pin_code, pins], [spigot_code, spigots]], dtype=object)
     parts = np.vstack((beams, joints))
     parts = parts[parts[:, 1] != 0]
     parts = pd.DataFrame(parts, columns=['Code', 'qty'])
-
     return parts
-
-'''
-parts = Parts().read_csv('parts.csv')
-parts = parts.add_qty(beam('AHD', 35))
-print(parts.search(['BD4000', 'BD3000', 'BD2000', 'AF0001']))
-'''
-
-
 
 def duo_beamline(lhs, rhs, pitch, beam_type):
 
