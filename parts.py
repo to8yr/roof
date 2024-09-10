@@ -7,7 +7,7 @@ class Parts:
     
     # Function to initialise Parts dataframe from csv file
     def read_csv(self, csv):
-        self.parts = pd.read_csv('parts.csv')
+        self.parts = pd.read_csv(csv)
         self.parts['qty'] = 0
         return self
 
@@ -25,22 +25,15 @@ class Parts:
         self.parts['qty'] = self.parts['qty'] + self.parts['qtyy']
         self.parts = self.parts.drop(['qtyy'], axis=1)
         return self
+    
+    # Remove all rows containing null value in qty coloumn
+    def trim(self):
+        result = self.parts.loc[self.parts['qty'] != '']
+        return result
 
-def beam(beam_type, length):
+def beam_np(beam_type, length):
 
-    # Define product code prefix
-    if beam_type == "D78":
-        prefix = "BA"
-    elif beam_type == "LV78":
-        prefix = "LVB"
-    elif beam_type == "AHD":
-        prefix = "BD"
-    elif beam_type == "LX133":
-        prefix = "LXA"
-    else:
-        print("Invalid input. Please enter a valid number.")
-
-    # Create empty array based on size
+        # Create empty array based on size
     if beam_type in ("D78", "LV78"):
         array = 6
     elif beam_type in ("AHD", "LX133"):
@@ -82,6 +75,24 @@ def beam(beam_type, length):
                 beam[1] = 1
             elif remainder == 3:
                 beam[2] = 1
+    return beam
+
+
+def beam_df(beam_type, length):
+
+    # Define product code prefix
+    if beam_type == "D78":
+        prefix = "BA"
+    elif beam_type == "LV78":
+        prefix = "LVB"
+    elif beam_type == "AHD":
+        prefix = "BD"
+    elif beam_type == "LX133":
+        prefix = "LXA"
+    else:
+        print("Invalid input. Please enter a valid number.")
+
+    beam = beam_np(beam_type, length)
 
     # Generate codes for beams and concat with qty
     if beam_type in ("D78", "LV78"):
@@ -120,22 +131,33 @@ def beam(beam_type, length):
     parts = pd.DataFrame(parts, columns=['Code', 'qty'])
     return parts
 
+
 def duo_beamline(lhs, rhs, pitch, beam_type):
 
-    # beam code
-    if beam_type == "78cm":
-        beam_code = "LBA"
-    elif beam_type == "LV78":
-        beam_code = "LVB"
-    elif beam_type == "LX133":
-        beam_code = "LXA"
+    # Generate beam dataframe using beam function
+    lhs_beams, rhs_beams = beam_df(beam_type, lhs), beam_df(beam_type, rhs)
+    parts = pd.merge(lhs_beams,rhs_beams,on='Code',how='outer')
+    parts = parts.fillna(0)
+    parts['qty'] = parts['qty_x'] + parts['qty_y']
+    parts = parts.drop(['qty_x', 'qty_y'], axis=1)
 
-    # Generate beam length list using dbeam
-    lhs_beams, rhs_beams = beam(beam_type, lhs), beam(beam_type, rhs)
+    print(parts)
+
+    # Add ridge beam and requried supplimentary components
+    ridge = pd.DataFrame({'Code': []
+                          , 'Qty'})
+
+    # Break more into seperate function so can be recalled easier!!!
+
+
+    parts = pd.merge(parts, )
+
+
+    '''
     beam_count = np.sum(np.column_stack((lhs_beams, rhs_beams)), axis=1)
 
     # Create list for beam quantiies
-    if beam_type in ("78cm", "LV78"):
+    if beam_type in ("D78", "LV78"):
         beam_lengths = np.array(["1000", "2000", "3000", "4000", "5000", "6000"])
     elif beam_type == "LX133":
         beam_lengths = np.array(["1000", "2000", "3000", "4000"])
@@ -209,3 +231,6 @@ def duo_bay(lhs, rhs, beam_type, bay_size):
     parts = parts[parts[:, 1] != 0]
 
     return parts
+    '''
+
+duo_beamline(12,10,18,'LX133')

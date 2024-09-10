@@ -23,3 +23,7 @@ class Duopitch:
         parts = np.row_stack((beamline, bay))
 
         return parts
+    
+parts = Parts().read_csv('parts.csv')
+parts = parts.add_qty(beam('LX133', 31))
+print(parts.trim())
