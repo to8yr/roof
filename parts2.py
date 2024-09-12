@@ -32,7 +32,37 @@ class Parts:
         result = self.parts.loc[self.parts['qty'] != '']
         return result
     
+# returns numpy array of beam lengths
+def beam_np(beam_type:str, length:int):
+    if beam_type in ("D78", "LV78"):
+        beam = np.zeros(6)
+        if length <= 2:
+            beam[length - 1] = 1
+        else:
+            beam[5] = length // 6
+            beam[length % 6 + 1] = 1
+    elif beam_type in ("AHD", "LX133"):
+        beam = np.zeros(4)
+        if length == 1: beam[0] = 1
+        else: 
+            beam[3] = length // 4
+            beam[length % 4 + 1] = 1
+    return beam
 
+# returns pandas dataframe of beam_np with part codes including spigots and pins
+def beam_pd(beam_type:str, length:int):
+    ...
+
+# returns pandas data frame for all components in a single duopitch beamline
+def duo_beamline(lhs:int, rhs:int, pitch:int, beam_type:str):
+    ...
+
+# returns pandas data frame for all components in a single duopitch bay
+def duo_bay(lhs:int, rhs:int, bay_size:float, beam_type:str, sheet_exact:bool):
+    ...
+
+def support(support:bool):
+    ...
 
 # regular baysize duopitch roof
 def reg_duo(lhs:int, rhs:int, length:float, pitch:int, bay_size:float, 
@@ -57,23 +87,4 @@ def irr_mono(beams:int, bay_sizes:list, beam_type:str,
 # regular baysize rolling duopitch roof
 def roll_duo(lhs:int, rhs:int, length:float, pitch:int, bay_size:float, 
              beam_type:str, support:str, gable:bool, tiebar:int):
-    ...
-
-# returns numpy array of beam lengths
-def beam_np(beam_type:str, length:int):
-    ...
-
-# returns pandas dataframe of beam_np with part codes including spigots and pins
-def beam_pd(beam_type:str, length:int):
-    ...
-
-# returns pandas data frame for all components in a single duopitch beamline
-def duo_beamline(lhs:int, rhs:int, pitch:int, beam_type:str):
-    ...
-
-# returns pandas data frame for all components in a single duopitch bay
-def duo_bay(lhs:int, rhs:int, bay_size:float, beam_type:str, sheet_exact:bool):
-    ...
-
-def support(support:bool):
     ...
