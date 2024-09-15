@@ -1,4 +1,4 @@
-from parts import *
+from archive.olparts import *
 
 # regular baysize duopitch roof
 def reg_duo(lhs:int, rhs:int, length:float, pitch:int, bay_size:float, 
