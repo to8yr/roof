@@ -4,6 +4,23 @@ prefix = ''
 spigot_code = ''
 pin_code = ''
 
+# Combine dataframes based on Code and sums qty
+def qty_add(list):
+    parts = pd.DataFrame({'Code': [], 'qty': []})
+    for i in list:
+        parts = pd.merge(parts, i, on='Code', how='outer', suffixes=('_x', '_y')).fillna(0)
+        parts['qty'] = parts['qty_x'] + parts['qty_y']
+        parts = parts.drop(['qty_x', 'qty_y'], axis=1)
+    return parts
+
+# Multiply all values in qty column
+def qty_multiply(list, factor):
+    array = []
+    for i in list:
+        i['qty'] = i['qty'].multiply(factor)
+        array.append(i)
+    return array
+
 # object containing parts list as a pandas dataframe with various functions for add qty column, copy to clipboard etc
 class Parts:
     def __init__(self):
@@ -25,9 +42,9 @@ class Parts:
     
     # Adds qty tab to Parts dataframe and 
     def add_qty(self, df):
-        self.parts = pd.merge(self.parts, df, on="Code", how="right", suffixes=('', 'y'))
-        self.parts['qty'] = self.parts['qty'] + self.parts['qtyy']
-        self.parts = self.parts.drop(['qtyy'], axis=1)
+        self.parts = pd.merge(self.parts, df, on="Code", how="right", suffixes=('', '_y'))
+        self.parts['qty'] = self.parts['qty'] + self.parts['qty_y']
+        self.parts = self.parts.drop(['qty_y'], axis=1)
         return self
     
     # Remove all rows containing null value in qty coloumn
@@ -105,15 +122,6 @@ def beam_pd(beam_type:str, length:int):
     parts = pd.DataFrame(parts, columns=['Code', 'qty'])
     return parts
 
-# Combined dataframes based on Code and sums qty
-def qty_add(list):
-    parts = pd.DataFrame({'Code': [], 'qty': []})
-    for i in list:
-        parts = pd.merge(parts, i, on='Code', how='outer', suffixes=('_x', '_y')).fillna(0)
-        parts['qty'] = parts['qty_x'] + parts['qty_y']
-        parts = parts.drop(['qty_x', 'qty_y'], axis=1)
-    return parts
-
 # returns pandas data frame for all components in a single duopitch beamline
 def duo_beamline(lhs:int, rhs:int, pitch:int, beam_type:str):
     
@@ -134,8 +142,6 @@ def duo_beamline(lhs:int, rhs:int, pitch:int, beam_type:str):
     parts = qty_add([lhs_beam, rhs_beam, ridge])
 
     return parts
-    
-print(duo_beamline(20,20,18,'D78'))  
 
 
 # returns pandas data frame for all components in a single duopitch bay
@@ -145,27 +151,3 @@ def duo_bay(lhs:int, rhs:int, bay_size:float, beam_type:str, sheet_exact:bool):
 def support(support:bool):
     ...
 
-# regular baysize duopitch roof
-def reg_duo(lhs:int, rhs:int, length:float, pitch:int, bay_size:float, 
-            beam_type:str, sheet_exact:bool, support:str, gable:bool, tiebar:int):
-    ...
-
-# regular baysize monopitch roof
-def reg_mono(beam:int, length:float, bay_size:float, beam_type:str, 
-             sheet_exact:bool, support:str, gable:bool):
-    ...
-
-# irregular baysize duopitch roof, input lists for each bay
-def irr_duo(lhs:list, rhs:list, bay_sizes:list, beam_type:str, 
-            sheet_exact:bool, support:str, gable:bool, tiebar:int):
-    ...
-
-# irregular baysize monopitch roof, input list for each bay
-def irr_mono(beams:int, bay_sizes:list, beam_type:str, 
-             sheet_exact:bool, support:str, gable:bool):
-    ...
-
-# regular baysize rolling duopitch roof
-def roll_duo(lhs:int, rhs:int, length:float, pitch:int, bay_size:float, 
-             beam_type:str, support:str, gable:bool, tiebar:int):
-    ...
